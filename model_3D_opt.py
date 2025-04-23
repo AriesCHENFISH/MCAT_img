@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch
+i =1
+
 class EnhancedMCAT(nn.Module):
     def __init__(self, fusion='gated', model_size_ct='small', model_size_dsa='small', n_classes=1, dropout=0.25):
         super(EnhancedMCAT, self).__init__()
