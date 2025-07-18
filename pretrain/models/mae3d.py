@@ -1,0 +1,85 @@
+import torch
+import torch.nn as nn
+from einops import rearrange
+
+class PatchEmbed3D(nn.Module):
+    def __init__(self, patch_size=4, in_channels=1, embed_dim=512):
+        super().__init__()
+        self.patch_size = patch_size
+        self.proj = nn.Conv3d(in_channels, embed_dim, kernel_size=patch_size, stride=patch_size)
+
+    def forward(self, x):
+        # 输入 x: [B, 1, D, H, W]
+        x = self.proj(x)  # 输出: [B, embed_dim, D', H', W']
+        x = rearrange(x, 'b c d h w -> b (d h w) c')  # 输出: [B, N, embed_dim]
+        return x
+
+class TransformerEncoderBlock(nn.Module):
+    def __init__(self, dim, heads=4, mlp_ratio=4.0, dropout=0.1):
+        super().__init__()
+        self.norm1 = nn.LayerNorm(dim)
+        self.attn = nn.MultiheadAttention(embed_dim=dim, num_heads=heads, dropout=dropout, batch_first=True)
+        self.norm2 = nn.LayerNorm(dim)
+        self.mlp = nn.Sequential(
+            nn.Linear(dim, int(dim * mlp_ratio)),
+            nn.GELU(),
+            nn.Linear(int(dim * mlp_ratio), dim),
+        )
+
+    def forward(self, x):
+        # 输入 x: [B, N, dim]
+        x = x + self.attn(self.norm1(x), self.norm1(x), self.norm1(x))[0]
+        x = x + self.mlp(self.norm2(x))
+        return x
+
+class MAE3D(nn.Module):
+    def __init__(self, img_size=16, patch_size=4, in_channels=1, embed_dim=512, depth=4):
+        super().__init__()
+        self.patch_embed = PatchEmbed3D(patch_size, in_channels, embed_dim)
+        self.encoder_blocks = nn.Sequential(*[
+            TransformerEncoderBlock(embed_dim) for _ in range(depth)
+        ])
+        self.encoder_norm = nn.LayerNorm(embed_dim)
+
+        # decoder for MAE reconstruction
+        self.decoder = nn.Sequential(
+            nn.Linear(embed_dim, embed_dim),
+            nn.ReLU(),
+            nn.Linear(embed_dim, patch_size**3),  # 每个 patch 还原为 flat patch
+        )
+
+        self.patch_size = patch_size
+        self.embed_dim = embed_dim
+        self.patch_num = (img_size // patch_size) ** 3
+
+    def forward(self, x):
+        patches = self.patch_embed(x)           # [B, N, embed_dim]
+        encoded = self.encoder_blocks(patches)  # [B, N, embed_dim]
+        encoded = self.encoder_norm(encoded)    # [B, N, embed_dim]
+
+        # reconstruction
+        recon_patches = self.decoder(encoded)   # [B, N, patch^3]
+        B, N, P = recon_patches.shape
+        patch_size = self.patch_size
+        recon = recon_patches.view(B, N, patch_size, patch_size, patch_size)  # [B, N, 4, 4, 4]
+
+        # 关键修复点
+        grid_size = round(N ** (1/3))  # ⚠️ 使用 round() 避免 grid_size×patch_size ≠ 原图尺寸
+        assert grid_size ** 3 == N, f"Expected cubic number of patches, got N={N}"
+        recon = recon.view(B, grid_size, grid_size, grid_size, patch_size, patch_size, patch_size)
+        recon = recon.permute(0, 1, 4, 2, 5, 3, 6).contiguous()
+        recon = recon.view(B, 1,
+                        grid_size * patch_size,
+                        grid_size * patch_size,
+                        grid_size * patch_size)
+
+
+        loss = nn.MSELoss()(recon, x)
+        return loss, recon
+
+
+    def encode_only(self, x):
+        patches = self.patch_embed(x)           # [B, N, embed_dim]
+        encoded = self.encoder_blocks(patches)
+        encoded = self.encoder_norm(encoded)
+        return encoded.mean(dim=1)              # 返回全局平均特征 [B, embed_dim]

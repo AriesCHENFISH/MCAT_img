@@ -1,0 +1,122 @@
+Training Log
+====================================
+Epoch 1/40:
+Train - Loss: 0.7025 | Acc: 0.4500 | AUC: 0.4500
+Val - Loss: 0.6675 | Acc: 0.6970 | AUC: 0.6962
+Epoch 2/40:
+Train - Loss: 0.6933 | Acc: 0.5500 | AUC: 0.5500
+Val - Loss: 0.6479 | Acc: 0.6970 | AUC: 0.6962
+Epoch 3/40:
+Train - Loss: 0.6885 | Acc: 0.5250 | AUC: 0.5250
+Val - Loss: 0.6490 | Acc: 0.6970 | AUC: 0.6962
+Epoch 4/40:
+Train - Loss: 0.6851 | Acc: 0.5750 | AUC: 0.5750
+Val - Loss: 0.6335 | Acc: 0.6970 | AUC: 0.6962
+Epoch 5/40:
+Train - Loss: 0.6825 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.6026 | Acc: 0.6970 | AUC: 0.6962
+Epoch 6/40:
+Train - Loss: 0.6746 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.6072 | Acc: 0.6970 | AUC: 0.6962
+Epoch 7/40:
+Train - Loss: 0.6708 | Acc: 0.5875 | AUC: 0.5875
+Val - Loss: 0.6022 | Acc: 0.6970 | AUC: 0.6962
+Epoch 8/40:
+Train - Loss: 0.6766 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.6096 | Acc: 0.6970 | AUC: 0.6962
+Epoch 9/40:
+Train - Loss: 0.6802 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.6054 | Acc: 0.6970 | AUC: 0.6962
+Epoch 10/40:
+Train - Loss: 0.6713 | Acc: 0.5750 | AUC: 0.5750
+Val - Loss: 0.5748 | Acc: 0.8182 | AUC: 0.7962
+Epoch 11/40:
+Train - Loss: 0.6751 | Acc: 0.5875 | AUC: 0.5875
+Val - Loss: 0.5781 | Acc: 0.7273 | AUC: 0.7212
+Epoch 12/40:
+Train - Loss: 0.6691 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.5602 | Acc: 0.8182 | AUC: 0.7962
+Epoch 13/40:
+Train - Loss: 0.6722 | Acc: 0.5750 | AUC: 0.5750
+Val - Loss: 0.6000 | Acc: 0.6970 | AUC: 0.6962
+Epoch 14/40:
+Train - Loss: 0.6657 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.5986 | Acc: 0.6970 | AUC: 0.6962
+Epoch 15/40:
+Train - Loss: 0.6705 | Acc: 0.6125 | AUC: 0.6125
+Val - Loss: 0.5681 | Acc: 0.7879 | AUC: 0.7712
+Epoch 16/40:
+Train - Loss: 0.6683 | Acc: 0.5875 | AUC: 0.5875
+Val - Loss: 0.5765 | Acc: 0.6970 | AUC: 0.6962
+Epoch 17/40:
+Train - Loss: 0.6744 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.5569 | Acc: 0.8182 | AUC: 0.7962
+Epoch 18/40:
+Train - Loss: 0.6549 | Acc: 0.6125 | AUC: 0.6125
+Val - Loss: 0.5486 | Acc: 0.8182 | AUC: 0.7962
+Epoch 19/40:
+Train - Loss: 0.6572 | Acc: 0.6125 | AUC: 0.6125
+Val - Loss: 0.5652 | Acc: 0.8182 | AUC: 0.7962
+Epoch 20/40:
+Train - Loss: 0.6485 | Acc: 0.6500 | AUC: 0.6500
+Val - Loss: 0.5574 | Acc: 0.8182 | AUC: 0.7962
+Epoch 21/40:
+Train - Loss: 0.6673 | Acc: 0.6250 | AUC: 0.6250
+Val - Loss: 0.5594 | Acc: 0.7879 | AUC: 0.7712
+Epoch 22/40:
+Train - Loss: 0.6656 | Acc: 0.5625 | AUC: 0.5625
+Val - Loss: 0.5489 | Acc: 0.8182 | AUC: 0.7962
+Epoch 23/40:
+Train - Loss: 0.6544 | Acc: 0.6250 | AUC: 0.6250
+Val - Loss: 0.5388 | Acc: 0.8485 | AUC: 0.8212
+Epoch 24/40:
+Train - Loss: 0.6573 | Acc: 0.5625 | AUC: 0.5625
+Val - Loss: 0.5454 | Acc: 0.8182 | AUC: 0.7827
+Epoch 25/40:
+Train - Loss: 0.6642 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.5480 | Acc: 0.8485 | AUC: 0.8212
+Epoch 26/40:
+Train - Loss: 0.6452 | Acc: 0.6250 | AUC: 0.6250
+Val - Loss: 0.5678 | Acc: 0.8788 | AUC: 0.8596
+Epoch 27/40:
+Train - Loss: 0.6585 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.5375 | Acc: 0.8485 | AUC: 0.8212
+Epoch 28/40:
+Train - Loss: 0.6518 | Acc: 0.6250 | AUC: 0.6250
+Val - Loss: 0.5460 | Acc: 0.8182 | AUC: 0.7962
+Epoch 29/40:
+Train - Loss: 0.6371 | Acc: 0.6250 | AUC: 0.6250
+Val - Loss: 0.5199 | Acc: 0.8485 | AUC: 0.8212
+Epoch 30/40:
+Train - Loss: 0.6496 | Acc: 0.5875 | AUC: 0.5875
+Val - Loss: 0.5325 | Acc: 0.8182 | AUC: 0.7962
+Epoch 31/40:
+Train - Loss: 0.6531 | Acc: 0.6125 | AUC: 0.6125
+Val - Loss: 0.5470 | Acc: 0.8485 | AUC: 0.8212
+Epoch 32/40:
+Train - Loss: 0.6592 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.5455 | Acc: 0.8485 | AUC: 0.8212
+Epoch 33/40:
+Train - Loss: 0.6494 | Acc: 0.6125 | AUC: 0.6125
+Val - Loss: 0.5417 | Acc: 0.8182 | AUC: 0.7962
+Epoch 34/40:
+Train - Loss: 0.6400 | Acc: 0.6375 | AUC: 0.6375
+Val - Loss: 0.5380 | Acc: 0.8485 | AUC: 0.8212
+Epoch 35/40:
+Train - Loss: 0.6322 | Acc: 0.6625 | AUC: 0.6625
+Val - Loss: 0.5469 | Acc: 0.8788 | AUC: 0.8596
+Epoch 36/40:
+Train - Loss: 0.6506 | Acc: 0.5875 | AUC: 0.5875
+Val - Loss: 0.5242 | Acc: 0.8182 | AUC: 0.7827
+Epoch 37/40:
+Train - Loss: 0.6475 | Acc: 0.5875 | AUC: 0.5875
+Val - Loss: 0.5349 | Acc: 0.8485 | AUC: 0.8212
+Epoch 38/40:
+Train - Loss: 0.6411 | Acc: 0.6125 | AUC: 0.6125
+Val - Loss: 0.5266 | Acc: 0.8485 | AUC: 0.8212
+Epoch 39/40:
+Train - Loss: 0.6467 | Acc: 0.5375 | AUC: 0.5375
+Val - Loss: 0.5003 | Acc: 0.8485 | AUC: 0.8077
+Epoch 40/40:
+Train - Loss: 0.6454 | Acc: 0.6000 | AUC: 0.6000
+Val - Loss: 0.5414 | Acc: 0.8182 | AUC: 0.7827
